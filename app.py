@@ -52,9 +52,9 @@ def create_map(df):
             fill=True,
             fill_color=color
         ).add_to(m)
-    map_path = "templates/map.html"
+    map_path = "static/map.html"
     m.save(map_path)
-    return "map.html"
+    return "static/map.html"
 
 @app.route("/")
 def index():
@@ -67,7 +67,7 @@ def results():
     map_file = create_map(df)
     n_clusters = len(set(df['cluster'])) - (1 if -1 in df['cluster'].values else 0)
     n_noise = list(df['cluster']).count(-1)
-    return render_template("results.html", n_clusters=n_clusters, n_noise=n_noise, map_file=map_file)
+    return render_template("results.html", n_clusters=n_clusters, n_noise=n_noise)
 
 if __name__ == "__main__":
     app.run(debug=True)
