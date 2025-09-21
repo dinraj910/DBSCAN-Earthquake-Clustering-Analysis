@@ -3,13 +3,16 @@ import pandas as pd
 from sklearn.cluster import DBSCAN
 from sklearn.preprocessing import StandardScaler
 import folium
+import requests
+import json
 
 app = Flask(__name__)
 
 # Step 1 – Fetch data from USGS
 def fetch_earthquake_data():
     url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2022-04-01&endtime=2025-01-01&minmagnitude=4.5"
-    data = pd.read_json(url)
+    response = requests.get(url)
+    data = response.json()
     df = pd.json_normalize(data['features'])
     df = df[['properties.time', 'properties.mag', 'properties.place', 'geometry.coordinates']]
     df.rename(columns={
