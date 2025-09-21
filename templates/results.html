@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h1>Earthquake Clustering Results</h1>
+    <p>Number of clusters found: {{ n_clusters }}</p>
+    <p>Number of noise (outliers): {{ n_noise }}</p>
+    <iframe src="{{ map_file }}" width="100%" height="600"></iframe>
+    <br>
+    <a href="/">Back</a>
+</body>
+</html>
