@@ -2,7 +2,11 @@
 
 ## 📖 Introduction
 
-This project demonstrates **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**, a powerful **unsupervised learning algorithm**, applied to **real-world earthquake data** from the USGS (United States Geological Survey). If you're new to density-based clustering, this guide will walk you through every step, from fetching live earthquake data to interpreting seismic zones.
+This project demonstrates **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**, a powerful **unsupervised learning algorithm**, applied to **real-world earthquake data** from the USGS (United States Geological Survey). 
+
+**🌐 NEW: Interactive Web Application!** This project now includes a modern Flask web application with Bootstrap styling, providing an intuitive interface for earthquake clustering analysis with real-time data visualization and interactive maps.
+
+If you're new to density-based clustering, this guide will walk you through every step, from fetching live earthquake data to interpreting seismic zones through both programmatic analysis and our user-friendly web interface.
 
 ---
 
@@ -21,6 +25,38 @@ We use **real-time earthquake data** from the USGS Earthquake Hazards Program, f
   - **Place:** Location description
 
 Our goal: **Identify seismic zones and earthquake-prone regions using DBSCAN clustering** — without any prior geographic knowledge.
+
+---
+
+## 🚀 Getting Started
+
+### 🖥️ Running the Web Application
+
+1. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Start the Flask Server:**
+   ```bash
+   python app.py
+   ```
+
+3. **Open Your Browser:**
+   Navigate to `http://127.0.0.1:5000` to access the interactive web interface
+
+4. **Explore Features:**
+   - View the modern homepage with project information
+   - Click "Start Analysis" to run DBSCAN clustering on live earthquake data
+   - Interact with the enhanced map visualization
+   - Explore cluster statistics and insights
+
+### 📓 Running the Jupyter Notebook
+
+Alternatively, you can run the complete analysis in Jupyter:
+```bash
+jupyter notebook notebooks/earthquake-clustering.ipynb
+```
 
 ---
 
@@ -117,6 +153,45 @@ Magnitude Range: 4.5 - 8.0+ (significant to major earthquakes)
 - Saved as `earthquake_clusters.html`
 
 ![alt text](image-2.png)
+
+## 🌐 Website Screenshots
+
+Our Flask web application provides a modern, responsive interface for earthquake clustering analysis. Here are screenshots showcasing the enhanced Bootstrap-powered design:
+
+### 🏠 Homepage - Landing Page
+![Results Insights](screenshots/Screenshot%202025-09-21%20174855.png)
+
+![Map Interaction](screenshots/Screenshot%202025-09-21%20174903.png)
+
+![Earthquake Details](screenshots/Screenshot%202025-09-21%20174909.png)
+
+![Mobile Responsive](screenshots/Screenshot%202025-09-21%20175125.png)
+
+![Homepage Landing](screenshots/Screenshot%202025-09-21%20174703.png)
+
+### 🗺️ Analysis Results - Interactive Map
+![Homepage Features](screenshots/Screenshot%202025-09-21%20174746.png)
+
+### 🗺️ Analysis Results - Interactive Map
+![Homepage About](screenshots/Screenshot%202025-09-21%20174805.png)
+
+### 🗺️ Analysis Results - Interactive Map
+![Results Statistics](screenshots/Screenshot%202025-09-21%20174832.png)
+
+![Results Map](screenshots/Screenshot%202025-09-21%20174845.png)
+
+### 🎯 Key Website Features
+
+- **🎨 Modern Bootstrap Design** - Professional gradient styling and responsive layout
+- **📊 Interactive Statistics** - Real-time cluster and outlier counts with animated cards
+- **🗺️ Enhanced Map Visualization** - Folium integration with detailed popups and legends
+- **📱 Mobile Responsive** - Optimized for all device sizes and screen orientations
+- **⚡ Interactive Elements** - Loading animations, hover effects, and smooth transitions
+- **🎪 User Experience** - Intuitive navigation, fullscreen map mode, and export functionality
+
+## Website Sample screenshots
+
+
 
 ### Parameter Tuning Results
 ```
@@ -251,13 +326,32 @@ folium             # Interactive mapping (optional)
 ## 📂 Project Structure
 
 ```
-earthquake-clustering.ipynb    # Complete analysis notebook
-README.md                     # Documentation (this file)
-earthquake_clusters.html      # Interactive Folium map
-dbscan_scaled_plot.png        # Scaled coordinate visualization
-geographic_clusters.png       # Real-world map visualization
-parameter_tuning_results.csv  # DBSCAN parameter analysis
-cluster_statistics.txt        # Detailed cluster characteristics
+earthquake-clustering-dbscan/
+├── app.py                          # Flask web application
+├── templates/                      # HTML templates
+│   ├── index.html                 # Enhanced homepage with Bootstrap
+│   └── results.html               # Results page with interactive map
+├── static/                         # Static files
+│   ├── map.html                   # Generated Folium map
+│   └── style.css                  # Custom CSS styles
+├── screenshots/                    # Website screenshots
+│   ├── Screenshot 2025-09-21 174703.png  # Homepage landing
+│   ├── Screenshot 2025-09-21 174746.png  # Homepage features
+│   ├── Screenshot 2025-09-21 174805.png  # Homepage about
+│   ├── Screenshot 2025-09-21 174832.png  # Results statistics
+│   ├── Screenshot 2025-09-21 174845.png  # Results map
+│   ├── Screenshot 2025-09-21 174855.png  # Results insights
+│   ├── Screenshot 2025-09-21 174903.png  # Map interaction
+│   ├── Screenshot 2025-09-21 174909.png  # Earthquake details
+│   └── Screenshot 2025-09-21 175125.png  # Mobile responsive
+├── notebooks/                      # Jupyter notebooks for analysis
+│   └── earthquake-clustering.ipynb # Complete analysis notebook
+├── data/                          # Data directory
+├── requirements.txt               # Python dependencies
+├── README.md                      # Documentation (this file)
+├── image.png                      # Scaled coordinate visualization
+├── image-1.png                    # Geographic clusters visualization
+└── image-2.png                    # Interactive Folium map
 ```
 
 ---
